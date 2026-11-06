@@ -14,12 +14,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-            - name: Setup Android SDK
-        with:
-          accept-android-sdk-licenses: 'true'
 
-      - run: sdkmanager "platforms;android-35" "build-tools;35.0.0" "platform-tools"
-      
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platforms;android-35 build-tools;35.0.0 platform-tools'
+          accept-android-sdk-licenses: true
+
       - name: Build APK
         run: gradle assembleDebug
 
