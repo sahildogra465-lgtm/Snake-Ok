@@ -18,7 +18,7 @@ jobs:
         with:
           accept-android-sdk-licenses: 'true'
 
-      - run: yes | sdkmanager "platforms;android-35" "build-tools;35.0.0" "platform-tools"
+      - run: sdkmanager "platforms;android-35" "build-tools;35.0.0" "platform-tools"
       
       - name: Build APK
         run: gradle assembleDebug
